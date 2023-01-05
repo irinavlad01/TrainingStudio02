@@ -25,7 +25,8 @@ namespace TrainingStudio02.Pages.FitnessClasses
         {
             if (_context.FitnessClass != null)
             {
-                FitnessClass = await _context.FitnessClass.ToListAsync();
+                FitnessClass = await _context.FitnessClass.Include(b => b.Trainer).ToListAsync();
+                FitnessClass = await _context.FitnessClass.Include(b => b.Location).ToListAsync();
             }
         }
     }

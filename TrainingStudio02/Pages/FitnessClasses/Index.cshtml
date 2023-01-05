@@ -26,10 +26,10 @@
                 @Html.DisplayNameFor(model => model.FitnessClass[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FitnessClass[0].Trainer)
+                @Html.DisplayNameFor(model => model.FitnessClass[0].Trainer.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FitnessClass[0].Location)
+                @Html.DisplayNameFor(model => model.FitnessClass[0].Location.Name)
             </th>
             <th></th>
         </tr>
@@ -50,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Trainer)
+                @Html.DisplayFor(modelItem => item.Trainer.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location)
+                @Html.DisplayFor(modelItem => item.Location.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

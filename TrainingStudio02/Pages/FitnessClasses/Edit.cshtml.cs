@@ -36,6 +36,8 @@ namespace TrainingStudio02.Pages.FitnessClasses
                 return NotFound();
             }
             FitnessClass = fitnessclass;
+            ViewData["TrainerID"] = new SelectList(_context.Set<Trainer>(), "ID", "LastName");
+            ViewData["LocationID"] = new SelectList(_context.Set<Location>(), "ID", "Name");
             return Page();
         }
 
