@@ -1,0 +1,60 @@
+﻿@page
+@model TrainingStudio02.Pages.FitnessClasses.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>FitnessClass</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FitnessClass.ID" />
+            <div class="form-group">
+                <label asp-for="FitnessClass.Name" class="control-label"></label>
+                <input asp-for="FitnessClass.Name" class="form-control" />
+                <span asp-validation-for="FitnessClass.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FitnessClass.Description" class="control-label"></label>
+                <input asp-for="FitnessClass.Description" class="form-control" />
+                <span asp-validation-for="FitnessClass.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FitnessClass.Duration" class="control-label"></label>
+                <input asp-for="FitnessClass.Duration" class="form-control" />
+                <span asp-validation-for="FitnessClass.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FitnessClass.Price" class="control-label"></label>
+                <input asp-for="FitnessClass.Price" class="form-control" />
+                <span asp-validation-for="FitnessClass.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FitnessClass.Trainer" class="control-label"></label>
+                <input asp-for="FitnessClass.Trainer" class="form-control" />
+                <span asp-validation-for="FitnessClass.Trainer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FitnessClass.Location" class="control-label"></label>
+                <input asp-for="FitnessClass.Location" class="form-control" />
+                <span asp-validation-for="FitnessClass.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TrainingStudio02.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<TrainingStudio02Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TrainingStudio02Context") ?? throw new InvalidOperationException("Connection string 'TrainingStudio02Context' not found.")));
 
 var app = builder.Build();
 
