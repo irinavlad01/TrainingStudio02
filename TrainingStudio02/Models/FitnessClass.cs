@@ -1,11 +1,16 @@
-﻿namespace TrainingStudio02.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TrainingStudio02.Models
 {
     public class FitnessClass
     {
         public int ID { get; set; }
+        [Display(Name = "Name of the class")]
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Duration { get; set; }
+        [Column(TypeName = "decimal(6, 2)")]
         public decimal? Price { get; set; }
         public int? TrainerID { get; set; }
         public Trainer? Trainer { get; set; }
