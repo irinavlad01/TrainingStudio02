@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrainingStudio02.Data;
 
@@ -11,9 +12,10 @@ using TrainingStudio02.Data;
 namespace TrainingStudio02.Migrations
 {
     [DbContext(typeof(TrainingStudio02Context))]
-    partial class TrainingStudio02ContextModelSnapshot : ModelSnapshot
+    [Migration("20230106163819_FitnessClassCategory")]
+    partial class FitnessClassCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

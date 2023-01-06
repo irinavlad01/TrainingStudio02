@@ -12,7 +12,7 @@ using TrainingStudio02.Pages.Trainers;
 
 namespace TrainingStudio02.Pages.FitnessClasses
 {
-    public class CreateModel : PageModel
+    public class CreateModel : FitnessClassCategoriesPageModel
     {
         private readonly TrainingStudio02.Data.TrainingStudio02Context _context;
 
@@ -23,27 +23,57 @@ namespace TrainingStudio02.Pages.FitnessClasses
 
         public IActionResult OnGet()
         {
-            ViewData["TrainerID"] = new SelectList(_context.Set<Trainer>(), "ID", "LastName");
+
+            var trainerList = _context.Trainer.Select(x => new
+            {
+                x.ID,
+                FullName = x.LastName + " " + x.FirstName
+            });
+
+            ViewData["TrainerID"] = new SelectList(trainerList, "ID", "FullName");
             ViewData["LocationID"] = new SelectList(_context.Set<Location>(), "ID", "Name");
+
+            var fitnessClass = new FitnessClass();
+            fitnessClass.FitnessClassCategories = new List<FitnessClassCategory>();
+            PopulateAssignedCategoryData(_context, fitnessClass);
+
+
             return Page();
         }
 
         [BindProperty]
         public FitnessClass FitnessClass { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string[] selectedCategories)
         {
-          if (!ModelState.IsValid)
+
+            var newFitnessClass = new FitnessClass();
+            if (selectedCategories != null)
+
             {
-                return Page();
+
+                newFitnessClass.FitnessClassCategories = new List<FitnessClassCategory>();
+                foreach (var cat in selectedCategories)
+                {
+                    var catToAdd = new FitnessClassCategory
+                    {
+                        CategoryID = int.Parse(cat)
+                    };
+                    newFitnessClass.FitnessClassCategories.Add(catToAdd);
+
+                }
+
+
+
+                _context.FitnessClass.Add(FitnessClass);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.FitnessClass.Add(FitnessClass);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            PopulateAssignedCategoryData(_context, newFitnessClass);
+            return Page();
         }
     }
 }

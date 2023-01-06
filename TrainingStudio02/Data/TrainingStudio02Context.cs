@@ -19,5 +19,7 @@ namespace TrainingStudio02.Data
         public DbSet<TrainingStudio02.Models.Location> Location { get; set; }
 
         public DbSet<TrainingStudio02.Models.Trainer> Trainer { get; set; }
+
+        public DbSet<TrainingStudio02.Models.Category> Category { get; set; }
     }
 }
