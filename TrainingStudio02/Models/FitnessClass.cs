@@ -10,7 +10,6 @@ namespace TrainingStudio02.Models
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Duration { get; set; }
-        [Column(TypeName = "decimal(6, 2)")]
         public decimal? Price { get; set; }
         public int? TrainerID { get; set; }
         public Trainer? Trainer { get; set; }
