@@ -64,3 +64,32 @@
 }
     </tbody>
 </table>
+@if (Model.TrainerData.FitnessClasses != null)
+{
+    <h3>Books Edited by Selected Publisher</h3>
+    <table class="table">
+
+        @foreach (var item in Model.TrainerData.Trainers)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.TrainerID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @{
+                        foreach (var b in item.FitnessClasses)
+                        {
+
+                            @b.Name @: @b.Trainer.FullName
+
+                            <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

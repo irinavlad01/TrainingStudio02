@@ -32,7 +32,7 @@ namespace TrainingStudio02.Pages.Trainers
             TrainerData.Trainers = await _context.Trainer
                 .Include(i => i.FitnessClasses)
                 .ThenInclude(c => c.Location)
-                .OrderBy(i => i.LastName)
+                .OrderBy(i => i.LastName) //Nu poti face referinta dupa Full Name pentru ca nu e in baza de date
                 .ToListAsync();
             if (id != null)
             {
