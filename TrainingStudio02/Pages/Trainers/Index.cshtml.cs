@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TrainingStudio02.Data;
 using TrainingStudio02.Models;
+using TrainingStudio02.Models.ViewModels;
 
 namespace TrainingStudio02.Pages.Trainers
 {
@@ -21,11 +23,23 @@ namespace TrainingStudio02.Pages.Trainers
 
         public IList<Trainer> Trainer { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public TrainerIndexData TrainerData { get; set; }
+        public int TrainerID { get; set; }
+        public int FitnessClassID { get; set; }
+        public async Task OnGetAsync(int? id, int? fitnessClassID)
         {
-            if (_context.Trainer != null)
+            TrainerData = new TrainerIndexData();
+            TrainerData.Trainers = await _context.Trainer
+                .Include(i => i.FitnessClasses)
+                .ThenInclude(c => c.Location)
+                .OrderBy(i => i.LastName)
+                .ToListAsync();
+            if (id != null)
             {
-                Trainer = await _context.Trainer.ToListAsync();
+                TrainerID = id.Value;
+                Trainer trainer = TrainerData.Trainers
+                    .Where(i => i.ID == id.Value).Single();
+                TrainerData.FitnessClasses = trainer.FitnessClasses;
             }
         }
     }
