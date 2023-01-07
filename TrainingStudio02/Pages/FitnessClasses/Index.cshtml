@@ -26,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.FitnessClass[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FitnessClass[0].Trainer.LastName)
+                @Html.DisplayNameFor(model => model.FitnessClass[0].Trainer.FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FitnessClass[0].Location.Name)
@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Trainer.LastName)
+                @Html.DisplayFor(modelItem => item.Trainer.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location.Name)
