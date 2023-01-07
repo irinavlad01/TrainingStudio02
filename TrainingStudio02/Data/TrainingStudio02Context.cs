@@ -21,5 +21,9 @@ namespace TrainingStudio02.Data
         public DbSet<TrainingStudio02.Models.Trainer> Trainer { get; set; }
 
         public DbSet<TrainingStudio02.Models.Category> Category { get; set; }
+
+        public DbSet<TrainingStudio02.Models.Member> Member { get; set; }
+
+        public DbSet<TrainingStudio02.Models.Subscription> Subscription { get; set; }
     }
 }

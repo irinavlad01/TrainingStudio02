@@ -18,5 +18,6 @@ namespace TrainingStudio02.Models
         public int? LocationID { get; set; }
         public Location? Location { get; set; }
         public ICollection<FitnessClassCategory>? FitnessClassCategories { get; set; }
+        public ICollection<Subscription>? Subscriptions { get; set; }
     }
 }
