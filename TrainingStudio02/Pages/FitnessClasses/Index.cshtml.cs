@@ -30,6 +30,7 @@ namespace TrainingStudio02.Pages.FitnessClasses
 
             FitnessClassD.FitnessClasses = await _context.FitnessClass
              .Include(b => b.Location)
+             .Include(b => b.Trainer)
              .Include(b => b.FitnessClassCategories)
              .ThenInclude(b => b.Category)
              .AsNoTracking()
