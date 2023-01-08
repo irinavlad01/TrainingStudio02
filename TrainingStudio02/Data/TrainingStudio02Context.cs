@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TrainingStudio02.Models;
+using TrainingStudio02.Data;
 
 namespace TrainingStudio02.Data
 {
-    public class TrainingStudio02Context : DbContext
+    public class TrainingStudio02Context : IdentityDbContext
     {
         public TrainingStudio02Context (DbContextOptions<TrainingStudio02Context> options)
             : base(options)
