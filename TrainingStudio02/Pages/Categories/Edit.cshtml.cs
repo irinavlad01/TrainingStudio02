@@ -13,6 +13,7 @@ using TrainingStudio02.Models;
 
 namespace TrainingStudio02.Pages.Categories
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly TrainingStudio02.Data.TrainingStudio02Context _context;
