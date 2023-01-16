@@ -46,3 +46,30 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+{
+    background: #ed563b;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn:hover {
+    background: #fff;
+}
+
+{
+    background: #ed563b;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 40px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn:hover {
+    background: #fff;
+}
