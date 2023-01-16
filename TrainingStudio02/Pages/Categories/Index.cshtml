@@ -2,12 +2,11 @@
 @model TrainingStudio02.Pages.Categories.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Categories";
 }
 
-<h1>Index</h1>
-<h2>Search for the perfect class by category</h2>
-<h3>Click the 'select' button next to your desired category. </h3>
+<h1>Categories</h1>
+<p>Search for classes by category. Click the 'select' button next to your desired category. </p>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -44,7 +43,7 @@
 </table>
 @if (Model.CategoryData.FitnessClasses != null)
 {
-    <h3>These are the classes for your selected category</h3>
+    <h3>These are the classes from your selected category</h3>
     <table class="table">
 
         @foreach (var item in Model.CategoryData.Categories)

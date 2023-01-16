@@ -2,10 +2,11 @@
 @model TrainingStudio02.Pages.Trainers.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Trainers";
 }
 
-<h1>Index</h1>
+<h1>Trainers</h1>
+<p>Search for classes by trainers. Use the 'select' button.</p>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -66,7 +67,7 @@
 </table>
 @if (Model.TrainerData.FitnessClasses != null)
 {
-    <h3>Books Edited by Selected Publisher</h3>
+    <h3>Classes trained by selected Trainers</h3>
     <table class="table">
 
         @foreach (var item in Model.TrainerData.Trainers)
