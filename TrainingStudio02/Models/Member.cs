@@ -1,15 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrainingStudio02.Models
 {
     public class Member
     {
         public int ID { get; set; }
-        [RegularExpression(@"^[A-Z]+[a-sA-Z\s-]*$", ErrorMessage = "Prenumele trebuie sa inceapa cu majuscula (ex. Ana sau Ana Maria sau Ana-Maria.")]
+        [RegularExpression(@"^[A-Z]+[a-z]*$", ErrorMessage = "Prenumele trebuie sa inceapa cu majuscula")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Prenumele trebuie sa aiba minim 3 litere.")]
+        [Display(Name = "First Name")]
         public string? FirstName { get; set; }
-        [RegularExpression(@"^[A-Z]+[a-sA-Z\s-]*$", ErrorMessage = "Numele trebuie sa inceapa cu majuscula (ex. Ana sau Ana Maria sau Ana-Maria.")]
+        [RegularExpression(@"^[A-Z]+[a-sA-Z\s-]*$", ErrorMessage = "Numele trebuie sa inceapa cu majuscula")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Numele trebuie sa aiba minim 3 litere.")]
+        [Display(Name = "Last Name")]
         public string? LastName { get; set; }
         [StringLength(70)]
         public string? Address { get; set; }

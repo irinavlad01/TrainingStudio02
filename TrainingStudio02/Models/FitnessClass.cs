@@ -17,6 +17,7 @@ namespace TrainingStudio02.Models
         public Trainer? Trainer { get; set; }
         public int? LocationID { get; set; }
         public Location? Location { get; set; }
+        [Display(Name = "Category")]
         public ICollection<FitnessClassCategory>? FitnessClassCategories { get; set; }
         public ICollection<Subscription>? Subscriptions { get; set; }
     }
