@@ -15,7 +15,22 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizeFolder("/FitnessClasses");
     options.Conventions.AllowAnonymousToPage("/FitnessClasses/Index");
     options.Conventions.AllowAnonymousToPage("/FitnessClasses/Details");
+
+    options.Conventions.AuthorizeFolder("/Locations");
+    options.Conventions.AllowAnonymousToPage("/Locations/Index");
+    options.Conventions.AllowAnonymousToPage("/Locations/Details");
+
+    options.Conventions.AuthorizeFolder("/Trainers");
+    options.Conventions.AllowAnonymousToPage("/Trainers/Index");
+    options.Conventions.AllowAnonymousToPage("/Trainers/Details");
+
+    options.Conventions.AuthorizeFolder("/Categories");
+    options.Conventions.AllowAnonymousToPage("/Categories/Index");
+    options.Conventions.AllowAnonymousToPage("/Categories/Details");
+
     options.Conventions.AuthorizeFolder("/Members", "AdminPolicy");
+
+    options.Conventions.AuthorizeFolder("/Subscriptions", "AdminPolicy");
 });
 
 builder.Services.AddDbContext<TrainingStudio02Context>(options =>

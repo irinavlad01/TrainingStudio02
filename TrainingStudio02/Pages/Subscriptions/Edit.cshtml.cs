@@ -36,8 +36,18 @@ namespace TrainingStudio02.Pages.Subscriptions
                 return NotFound();
             }
             Subscription = subscription;
-           ViewData["FitnessClassID"] = new SelectList(_context.FitnessClass, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+
+            var fitnessClassList = _context.FitnessClass
+                 .Include(b => b.Trainer)
+                 .Select(x => new
+                 {
+                     x.ID,
+                     FitnessClassFullName = x.Name + " - " + x.Trainer.FirstName + " "
+                     + x.Trainer.LastName
+                 });
+
+            ViewData["FitnessClassID"] = new SelectList(fitnessClassList, "ID", "FitnessClassFullName");
+            ViewData["MemberID"] = new SelectList(_context.Member, "ID", "FullName");
             return Page();
         }
 

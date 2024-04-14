@@ -10,6 +10,7 @@ namespace TrainingStudio02.Models
         public int? FitnessClassID { get; set; }
         public FitnessClass? FitnessClass { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Starting Date")]
         public DateTime StartingDate { get; set; }
     }
 }
